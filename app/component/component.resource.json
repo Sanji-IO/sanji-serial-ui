@@ -1,0 +1,36 @@
+{
+  "get": {
+    "url": "/system/serial",
+    "type": "collection",
+    "titlePrefix": "port"
+  },
+  "put": {
+    "url": "/system/serial/:id",
+    "type": "model"
+  },
+  "fields": [
+    {
+      "key": "mode",
+      "type": "select",
+      "templateOptions": {
+        "label": "SERIAL_FORM_LABEL_MODE",
+        "required": true,
+        "options": [
+          {
+            "label": "SERIAL_FORM_LABEL_RS232",
+            "value": "rs232"
+          },
+          {
+            "label": "SERIAL_FORM_LABEL_RS485_2W",
+            "value": "rs485-2w"
+          },
+          {
+            "label": "SERIAL_FORM_LABEL_RS485_4W",
+            "value": "rs422/rs485-4w"
+          }
+        ]
+      }
+    }
+  ]
+}
+
