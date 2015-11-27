@@ -1,13 +1,13 @@
 <script type ="text/ng-template" id="sanji-serial-edit.tpl.html">
-  
+
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab ng-repeat="tab in vm.tabs track by $index" label="{{::tab.title}}">
         <form ng-submit="vm.save(tab)"
           role="form" layout="column" layout-padding novalidate>
           <md-content>
-            <formly-form
-            model="tab.content" options="tab.formOptions" fields="tab.fields" form="tab.form">
+            <formly-form model="tab.content"
+            options="tab.formOptions" fields="tab.fields" form="tab.form">
               <div layout layout-align="end center">
                 <md-button type="submit" class="md-raised md-primary"
                 ng-disabled="tab.form.$invalid">
@@ -20,5 +20,5 @@
       </md-tab>
     </md-tabs>
   </md-content>
-  
+
 </script>

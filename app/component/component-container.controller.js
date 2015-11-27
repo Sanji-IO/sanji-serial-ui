@@ -1,23 +1,32 @@
-const $inject = ['sanjiWindowService', 'serialService'];
+const $inject = ['$scope', 'sanjiWindowService', 'serialService'];
+const WINDOW_ID = 'sanji-serial-ui';
 class SerialContainerController {
   constructor(...injects) {
     SerialContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
 
-    const WINDOW_ID = 'sanji-serial-ui';
-    const EDIT_STATE = 'sanji-edit';
-    let serialService = this.serialService;
-    let sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
 
-    this.data = serialService.data;
+    this.sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
+    this.data = this.serialService.data;
 
-    this.serialService.get().then(() => {
-      this.data = serialService.data;
-      sanjiWindowMgr.navigateTo(EDIT_STATE);
+    this.activate();
+
+    this.$scope.$on('sj:window:refresh', this.onRefresh.bind(this))
+  }
+
+  activate() {
+    this.sanjiWindowMgr.promise = this.serialService.get().then(() => {
+      this.data = this.serialService.data;
     });
   }
 
+  onRefresh(event, args) {
+    if (args.id === WINDOW_ID) {
+      this.activate();
+    }
+  }
+
   onSave(data) {
-    this.serialService.update(data);
+    this.sanjiWindowMgr.promise = this.serialService.update(data);
   }
 }
 SerialContainerController.$inject = $inject;
