@@ -1,6 +1,6 @@
 {
   "name": "sanji-serial-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/sanji-serial-ui",
   "config": {
     "ghooks": {

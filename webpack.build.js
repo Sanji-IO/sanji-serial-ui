@@ -11,10 +11,8 @@ config.entry = {
   'sanji-ui': './component/index.js'
 };
 config.output.filename = 'sanji-serial-ui.js';
-config.output.library = 'sjSerial';
-config.externals = {
-  'sanji-core-ui': 'sjCore'
-};
+config.output.libraryTarget = 'umd';
+config.externals = ['sanji-core-ui'];
 
 config.module.loaders = [
   {
