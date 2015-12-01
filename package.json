@@ -1,7 +1,9 @@
 {
   "name": "sanji-serial-ui",
-  "version": "1.0.1",
-  "main": "dist/sanji-serial-ui",
+  "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
+  "description": "Sanji Serial UI",
+  "version": "1.0.2",
+  "main": "index",
   "config": {
     "ghooks": {
       "pre-commit": ""
@@ -76,7 +78,6 @@
   "keywords": [
     "sanji"
   ],
-  "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "license": "MIT",
   "homepage": "https://github.com/Sanji-Io/sanji-serial-ui",
   "dependencies": {
