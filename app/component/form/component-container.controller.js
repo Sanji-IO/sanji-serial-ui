@@ -1,8 +1,8 @@
 const $inject = ['$scope', 'sanjiWindowService', 'serialService'];
 const WINDOW_ID = 'sanji-serial-ui';
-class SerialContainerController {
+class SerialFormContainerController {
   constructor(...injects) {
-    SerialContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
+    SerialFormContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
 
 
     this.sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
@@ -29,5 +29,5 @@ class SerialContainerController {
     this.sanjiWindowMgr.promise = this.serialService.update(data);
   }
 }
-SerialContainerController.$inject = $inject;
-export default SerialContainerController;
+SerialFormContainerController.$inject = $inject;
+export default SerialFormContainerController;

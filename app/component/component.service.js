@@ -1,4 +1,4 @@
-const $inject = ['$q', 'rest', 'exception', '_', 'pathToRegexp'];
+const $inject = ['$q', 'rest', 'exception', '_', 'pathToRegexp', 'logger', '$filter'];
 const config = require('./component.resource.json');
 class SerialService {
   constructor(...injects) {
@@ -46,7 +46,8 @@ class SerialService {
 
   get() {
     let toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), (__DEV__) ? {basePath: 'http://private-d8e84-sanjigeneric.apiary-mock.com'} : undefined)
+    // __BASE_PATH__ define in webpack
+    return this.rest.get(toPath(), (__DEV__) ? {basePath: __BASE_PATH__} : undefined)
     .then(res => {
       this.data = this._transform(res.data);
     })
@@ -59,7 +60,12 @@ class SerialService {
   update(data) {
     let toPath = this.pathToRegexp.compile(config.put.url);
     let path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
-    return this.rest.put(path, data.content, data.formOptions.files, (__DEV__) ? {basePath: 'http://private-d8e84-sanjigeneric.apiary-mock.com' } : undefined)
+    // __BASE_PATH__ define in webpack
+    return this.rest.put(path, data.content, data.formOptions.files, (__DEV__) ? {basePath:  __BASE_PATH__ } : undefined)
+    .then(res => {
+      this.logger.success(this.$filter('translate')('SERIAL_FORM_SAVE_SUCCESS'), res.data);
+      return res.data;
+    })
     .catch(err => {
       this.exception.catcher('[SerialService] Update data error.')(err);
       return this.$q.reject();
