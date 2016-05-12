@@ -5,8 +5,8 @@ import sjSerialInfo from './info';
 import sjSerialForm from './form';
 
 import i18nConfig from './component.i18n';
-import SerialService from './component.service';
-import SerialWindowDirective from './component-window.directive';
+import SerialService from './serial.service';
+import SerialWindowComponent from './window.component';
 
 let app = angular.module('sanji.serial', [
   sjCore,
@@ -15,5 +15,5 @@ let app = angular.module('sanji.serial', [
 ]);
 app.config(i18nConfig);
 app.service('serialService', SerialService);
-app.directive('sanjiSerialWindow', SerialWindowDirective.directiveFactory);
-export default app = app.name
+app.component('sanjiSerialWindow', SerialWindowComponent);
+export default app = app.name;

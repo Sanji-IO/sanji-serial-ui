@@ -4,16 +4,12 @@ class SerialInfoContainerController {
   constructor(...injects) {
     SerialInfoContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
 
-
     this.sanjiWindowMgr = this.sanjiWindowService.get(WINDOW_ID);
     this.data = this.serialService.data;
-
-    this.activate();
-
-    this.$scope.$on('sj:window:refresh', this.onRefresh.bind(this))
+    this.$scope.$on('sj:window:refresh', this.onRefresh.bind(this));
   }
 
-  activate() {
+  $onInit() {
     this.sanjiWindowMgr.promise = this.serialService.get().then(() => {
       this.data = this.serialService.data;
     });
@@ -21,7 +17,7 @@ class SerialInfoContainerController {
 
   onRefresh(event, args) {
     if (args.id === WINDOW_ID) {
-      this.activate();
+      this.$onInit();
     }
   }
 }
