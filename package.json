@@ -2,7 +2,7 @@
   "name": "sanji-serial-ui",
   "author": "Zack Yang <zack9433@gmail.com> (https://github.com/zack9433)",
   "description": "Sanji Serial UI",
-  "version": "0.2.0",
+  "version": "0.0.0-semantic-released",
   "main": "index",
   "config": {
     "ghooks": {
@@ -26,7 +26,7 @@
     "commit": "git-cz",
     "check-coverage": "istanbul check-coverage --statements 75 --branches 75 --functions 75 --lines 75",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "release": "standard-version",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "post-install": "webdirver-manager update"
   },
   "devDependencies": {
@@ -71,7 +71,7 @@
     "protractor": "~2.5.1",
     "raw-loader": "~0.5.1",
     "sass-loader": "~4.0.0",
-    "standard-version": "~2.4.0",
+    "semantic-release": "^4.3.5",
     "style-loader": "~0.13.0",
     "url-loader": "~0.5.7",
     "webpack": "^2.1.0-beta.20",
