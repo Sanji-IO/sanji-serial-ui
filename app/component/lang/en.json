@@ -1,12 +1,12 @@
 {
   "SERIAL": "Serial",
   "SERIAL_WINDOW_INFO": "Information",
-  "SERIAL_FORM_SETTING": "Setting",
+  "SERIAL_FORM_SETTING": "Settings",
   "SERIAL_FORM_LABEL_INTERFACE": "Interface",
   "SERIAL_FORM_LABEL_MODE": "Mode",
   "SERIAL_FORM_LABEL_RS232": "RS232",
   "SERIAL_FORM_LABEL_RS485_2W": "RS485-2W",
   "SERIAL_FORM_LABEL_RS485_4W": "RS422/RS485-4W",
   "SERIAL_FORM_SAVE": "Save",
-  "SERIAL_FORM_SAVE_SUCCESS": "Update data successfully."
+  "SERIAL_FORM_SAVE_SUCCESS": "Update Successfully."
 }
