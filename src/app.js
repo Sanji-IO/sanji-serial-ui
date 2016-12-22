@@ -7,7 +7,7 @@ import angular from 'angular';
 import {sjCore} from 'sanji-core-ui';
 import {sjSerial} from './component';
 
-const app = angular.module('webapp', [sjSerial, sjCore]);
+const app = angular.module('webapp', [sjCore, sjSerial]);
 class AppController {
   constructor($translate, LANG_KEYS, auth) {
     this.$translate = $translate;

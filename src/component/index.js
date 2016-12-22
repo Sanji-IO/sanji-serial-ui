@@ -1,5 +1,4 @@
 import angular from 'angular';
-import {sjCore} from 'sanji-core-ui';
 
 import {sjSerialInfo} from './info';
 import {sjSerialForm} from './form';
@@ -9,7 +8,6 @@ import SerialService from './serial.service';
 import SerialWindowComponent from './window.component';
 
 const sjSerial = angular.module('sanji.serial', [
-  sjCore,
   sjSerialInfo,
   sjSerialForm
 ])

@@ -1,3 +1,3 @@
-import {sjSerial} from './app/component';
+import {sjSerial} from './src/component';
 
 export {sjSerial};
