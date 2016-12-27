@@ -8,4 +8,4 @@ const sjSerialInfo = angular.module('sanji.serial.info', [])
   .component('sanjiSerialInfoContainer', SerialInfoContainerComponent)
   .component('sanjiSerialInfo', SerialInfoComponent)
   .name;
-export {sjSerialInfo};
+export { sjSerialInfo };

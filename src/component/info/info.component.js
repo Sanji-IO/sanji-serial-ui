@@ -5,7 +5,6 @@ const SerialInfoComponent = {
     tabs: '<data'
   },
   templateUrl: 'sanji-serial-info.tpl.html',
-  controller: SerialInfoController,
-  controllerAs: 'vm'
+  controller: SerialInfoController
 };
 export default SerialInfoComponent;

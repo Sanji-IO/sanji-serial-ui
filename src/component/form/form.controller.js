@@ -5,7 +5,9 @@ class SerialFormController {
   }
 
   save(data) {
-    this.submitCallback({data: data});
+    this.submitCallback({
+      $event: {data: data}
+    });
   }
 }
 SerialFormController.$inject = $inject;

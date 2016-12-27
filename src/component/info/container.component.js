@@ -1,8 +1,7 @@
 import SerialInfoContainerController from './container.controller';
 
 const SerialInfoContainerComponent = {
-  template: `<sanji-serial-info data="vm.data"></sanji-serial-info>`,
-  controller: SerialInfoContainerController,
-  controllerAs: 'vm'
+  template: `<sanji-serial-info data="$ctrl.data"></sanji-serial-info>`,
+  controller: SerialInfoContainerController
 };
 export default SerialInfoContainerComponent;

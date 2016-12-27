@@ -1,6 +1,6 @@
-<script type ="text/ng-template" id="sanji-serial-info.tpl.html">
+<script type="text/ng-template" id="sanji-serial-info.tpl.html">
   <md-tabs md-dynamic-height md-border-bottom>
-    <md-tab ng-repeat="tab in vm.tabs track by $index"
+    <md-tab ng-repeat="tab in $ctrl.tabs track by $index"
     label="{{::tab.content.devDisplayName}}">
       <md-list>
         <md-list-item>

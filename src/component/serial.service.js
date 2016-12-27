@@ -16,7 +16,6 @@ class SerialService {
         error: '[SerialService] Update data error.'
       }
     };
-    this.data = [];
   }
 
   _transform(data) {
@@ -39,7 +38,7 @@ class SerialService {
   get() {
     const toPath = this.pathToRegexp.compile(config.get.url);
     return this.rest.get(toPath(), this.restConfig)
-    .then(res => this.data = this._transform(res.data))
+    .then(res => this._transform(res.data))
     .catch(err => {
       this.exception.catcher('[SerialService] Get data error.')(err);
       return this.$q.reject();

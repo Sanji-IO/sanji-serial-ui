@@ -8,4 +8,4 @@ const sjSerialForm = angular.module('sanji.serial.form', [])
   .component('sanjiSerialFormContainer', SerialFormContainerComponent)
   .component('sanjiSerialForm', SerialFormComponent)
   .name;
-export {sjSerialForm};
+export { sjSerialForm };

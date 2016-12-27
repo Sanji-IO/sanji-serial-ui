@@ -4,8 +4,8 @@ import 'angular-sanji-window.css';
 import 'toastr.css';
 import './app.scss';
 import angular from 'angular';
-import {sjCore} from 'sanji-core-ui';
-import {sjSerial} from './component';
+import { sjCore } from 'sanji-core-ui';
+import { sjSerial, serials } from './component';
 
 const app = angular.module('webapp', [sjCore, sjSerial]);
 class AppController {
@@ -24,6 +24,9 @@ class AppController {
     return this.auth.isAuthorized(event.roles);
   }
 }
+app.config(reduxHelperProvider => {
+  reduxHelperProvider.configure({serials}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+});
 app.run(session => {
   session.create('token', 'test');
   session.setUserData({

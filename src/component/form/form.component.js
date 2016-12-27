@@ -6,7 +6,6 @@ const SerialFormComponent = {
     submitCallback: '&onSubmit'
   },
   templateUrl: 'sanji-serial-form.tpl.html',
-  controller: SerialFormController,
-  controllerAs: 'vm'
+  controller: SerialFormController
 };
 export default SerialFormComponent;

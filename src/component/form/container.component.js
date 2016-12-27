@@ -1,8 +1,7 @@
 import SerialFormContainerController from './container.controller';
 
 const SerialFormContainerComponent = {
-  template:`<sanji-serial-form data="vm.data" on-submit="vm.onSave(data)"></sanji-serial-form>`,
-  controller: SerialFormContainerController,
-  controllerAs: 'vm'
+  template:`<sanji-serial-form data="$ctrl.data" on-submit="$ctrl.onSave($event)"></sanji-serial-form>`,
+  controller: SerialFormContainerController
 };
 export default SerialFormContainerComponent;
