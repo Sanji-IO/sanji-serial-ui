@@ -10,7 +10,7 @@ const SerialWindowComponent = {
                 icon="info">
                 <sanji-serial-info-container></sanji-serial-info-container>
               </sanji-window-state>
-              <sanji-window-state ng-if="::$ctrl.isAuthorized(['superadmin', 'admin'])"
+              <sanji-window-state ng-if="::$ctrl.isAuthorized(['root', 'admin'])"
                 state-name="sanji-form"
                 link-name="{{'SERIAL_FORM_SETTING' | translate}}"
                 icon="settings">
