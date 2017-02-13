@@ -22,8 +22,8 @@ config.module.rules = [
   {
     test: /\.scss$/,
     loader: ExtractTextPlugin.extract({
-      notExtractLoader: 'style-loader',
-      loader: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
+      fallback: 'style-loader',
+      use: 'css-loader!postcss-loader!sass-loader?includePaths[]=' + bourbon
     })
   }
 ].concat(config.module.rules);
