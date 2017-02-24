@@ -1,6 +1,6 @@
 {
-  "SERIAL": "Serial",
-  "SERIAL_WINDOW_INFO": "Information",
+  "SERIAL": "Serial Ports",
+  "SERIAL_WINDOW_INFO": "Status",
   "SERIAL_FORM_SETTING": "Settings",
   "SERIAL_FORM_LABEL_INTERFACE": "Interface",
   "SERIAL_FORM_LABEL_MODE": "Mode",
@@ -8,5 +8,5 @@
   "SERIAL_FORM_LABEL_RS485_2W": "RS-485-2W",
   "SERIAL_FORM_LABEL_RS485_4W": "RS-422/RS-485-4W",
   "SERIAL_FORM_SAVE": "Save",
-  "SERIAL_FORM_SAVE_SUCCESS": "Update successful"
+  "SERIAL_FORM_SAVE_SUCCESS": "Serial port data has been updated!"
 }
