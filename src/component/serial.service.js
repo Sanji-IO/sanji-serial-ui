@@ -5,7 +5,7 @@ class SerialService {
   constructor(...injects) {
     SerialService.$inject.forEach((item, index) => this[item] = injects[index]);
     this.restConfig = {
-      basePath: (process.env.NODE_ENV === 'development') ? __BASE_PATH__ : undefined
+      basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined
     };
     this.message = {
       read: {
@@ -19,9 +19,8 @@ class SerialService {
   }
 
   _transform(data) {
-    return data.map((item, index) => {
+    return data.map(item => {
       return {
-        title: (config.get.titlePrefix || 'tab') + index,
         content: item,
         formOptions: {},
         fields: config.fields
@@ -37,9 +36,7 @@ class SerialService {
 
   get() {
     const toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), this.restConfig)
-    .then(res => this._transform(res.data))
-    .catch(err => {
+    return this.rest.get(toPath(), this.restConfig).then(res => this._transform(res.data)).catch(err => {
       this.exception.catcher('[SerialService] Get data error.')(err);
       return this.$q.reject();
     });
@@ -47,16 +44,17 @@ class SerialService {
 
   update(data) {
     const toPath = this.pathToRegexp.compile(config.put.url);
-    const path = (undefined !== data.content.id) ? toPath({id: data.content.id}) : toPath();
-    return this.rest.put(path, data.content, data.formOptions.files, this.restConfig)
-    .then(res => {
-      this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
-      return res.data;
-    })
-    .catch(err => {
-      this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
-      return this.$q.reject();
-    });
+    const path = undefined !== data.content.id ? toPath({ id: data.content.id }) : toPath();
+    return this.rest
+      .put(path, data.content, data.formOptions.files, this.restConfig)
+      .then(res => {
+        this.logger.success(this.$filter('translate')(this.message.update.success), res.data);
+        return res.data;
+      })
+      .catch(err => {
+        this.exception.catcher(this.$filter('translate')(this.message.update.error))(err);
+        return this.$q.reject();
+      });
   }
 }
 SerialService.$inject = $inject;
