@@ -2,7 +2,8 @@ import SerialInfoController from './info.controller';
 
 const SerialInfoComponent = {
   bindings: {
-    tabs: '<data'
+    tabs: '<data',
+    tabIndex: '='
   },
   templateUrl: 'sanji-serial-info.tpl.html',
   controller: SerialInfoController

@@ -1,5 +1,5 @@
 <script type="text/ng-template" id="sanji-serial-form.tpl.html">
-  <md-tabs md-dynamic-height md-border-bottom>
+  <md-tabs md-dynamic-height md-border-bottom md-selected="$ctrl.tabIndex">
     <md-tab ng-repeat="tab in $ctrl.tabs track by $index" label="{{::tab.content.devDisplayName}}">
       <form ng-submit="$ctrl.save(tab)" role="form" layout="column" layout-padding novalidate>
         <formly-form model="tab.content"

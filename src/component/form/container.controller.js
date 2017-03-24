@@ -25,7 +25,7 @@ class SerialFormContainerController {
 
   onRefresh(event, args) {
     if (args.id === WINDOW_ID) {
-      this.sanjiWindowMgr.promise = this.getSerials({force: true});
+      this.sanjiWindowMgr.promise = this.getSerials({ force: true });
     }
   }
 
