@@ -2,7 +2,7 @@ const SerialWindowComponent = {
   bindings: {
     onAuthorized: '&'
   },
-  template:`<sanji-window window-id="sanji-serial-ui"
+  template: `<sanji-window window-id="sanji-serial-ui"
               window-name="{{'SERIAL' | translate}}" show-loading-btn>
               <sanji-window-state default-state
                 state-name="sanji-info"

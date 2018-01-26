@@ -15,20 +15,17 @@ export const SerialAction = ($q, serialService) => {
     return (dispatch, getState) => {
       const { serials } = getState();
 
-      if((options && !options.force) && serials.length) {
-        return $q.when(serials)
-          .then(() => dispatch({ type: GET_SERIALS, payload: serials }));
+      if (options && !options.force && serials.length) {
+        return $q.when(serials).then(() => dispatch({ type: GET_SERIALS, payload: serials }));
       } else {
-        return serialService.get()
-          .then(data => dispatch({ type: GET_SERIALS, payload: data }));
+        return serialService.get().then(data => dispatch({ type: GET_SERIALS, payload: data }));
       }
     };
   };
 
   const updateSerial = payload => {
     return dispatch => {
-      return serialService.update(payload)
-        .then(() => dispatch({ type: UPDATE_SERIAL, payload }));
+      return serialService.update(payload).then(() => dispatch({ type: UPDATE_SERIAL, payload }));
     };
   };
 
@@ -41,24 +38,25 @@ export const SerialAction = ($q, serialService) => {
 //-------------------------------------------------------------------
 // Reducers
 //-------------------------------------------------------------------
-export const serials = (state = [], {type, payload}) => {
-  switch (type) {
-    case GET_SERIALS:
-      return payload || state;
-    case UPDATE_SERIAL:
-      return state.map(data => serial(data, {type, payload}));
-    default:
-      return state;
-  }
-};
 
-const serial = (state, {type, payload}) => {
+const serial = (state, { type, payload }) => {
   switch (type) {
     case UPDATE_SERIAL:
       if (state.content.id !== payload.content.id) {
         return state;
       }
       return Object.assign({}, state, payload);
+    default:
+      return state;
+  }
+};
+
+export const serials = (state = [], { type, payload }) => {
+  switch (type) {
+    case GET_SERIALS:
+      return payload || state;
+    case UPDATE_SERIAL:
+      return state.map(data => serial(data, { type, payload }));
     default:
       return state;
   }

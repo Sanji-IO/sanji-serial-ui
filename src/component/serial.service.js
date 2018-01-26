@@ -3,7 +3,7 @@ import config from './component.resource.json';
 const $inject = ['$q', 'rest', 'exception', 'pathToRegexp', 'logger', '$filter'];
 class SerialService {
   constructor(...injects) {
-    SerialService.$inject.forEach((item, index) => this[item] = injects[index]);
+    SerialService.$inject.forEach((item, index) => (this[item] = injects[index]));
     this.restConfig = {
       basePath: process.env.NODE_ENV === 'development' ? __BASE_PATH__ : undefined
     };
@@ -36,10 +36,13 @@ class SerialService {
 
   get() {
     const toPath = this.pathToRegexp.compile(config.get.url);
-    return this.rest.get(toPath(), this.restConfig).then(res => this._transform(res.data)).catch(err => {
-      this.exception.catcher('[SerialService] Get data error.')(err);
-      return this.$q.reject();
-    });
+    return this.rest
+      .get(toPath(), this.restConfig)
+      .then(res => this._transform(res.data))
+      .catch(err => {
+        this.exception.catcher('[SerialService] Get data error.')(err);
+        return this.$q.reject();
+      });
   }
 
   update(data) {

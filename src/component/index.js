@@ -8,13 +8,10 @@ import { SerialAction, serials, GET_SERIALS, UPDATE_SERIAL } from './serial.stat
 import SerialService from './serial.service';
 import SerialWindowComponent from './window.component';
 
-const sjSerial = angular.module('sanji.serial', [
-  sjSerialInfo,
-  sjSerialForm
-])
+const sjSerial = angular
+  .module('sanji.serial', [sjSerialInfo, sjSerialForm])
   .config(i18nConfig)
   .factory('serialAction', SerialAction)
   .service('serialService', SerialService)
-  .component('sanjiSerialWindow', SerialWindowComponent)
-  .name;
+  .component('sanjiSerialWindow', SerialWindowComponent).name;
 export { sjSerial, serials, GET_SERIALS, UPDATE_SERIAL };

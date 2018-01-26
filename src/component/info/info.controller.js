@@ -1,7 +1,7 @@
 const $inject = [];
 class SerialInfoController {
   constructor(...injects) {
-    SerialInfoController.$inject.forEach((item, index) => this[item] = injects[index]);
+    SerialInfoController.$inject.forEach((item, index) => (this[item] = injects[index]));
   }
 }
 SerialInfoController.$inject = $inject;

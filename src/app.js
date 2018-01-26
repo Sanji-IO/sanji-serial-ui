@@ -25,7 +25,10 @@ class AppController {
   }
 }
 app.config(reduxHelperProvider => {
-  reduxHelperProvider.configure({serials}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+  reduxHelperProvider.configure(
+    { serials },
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  );
 });
 app.run(session => {
   session.create('token', 'test');

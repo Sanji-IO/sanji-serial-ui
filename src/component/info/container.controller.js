@@ -2,7 +2,7 @@ const $inject = ['$scope', '$ngRedux', 'sanjiWindowService', 'serialAction'];
 const WINDOW_ID = 'sanji-serial-ui';
 class SerialInfoContainerController {
   constructor(...injects) {
-    SerialInfoContainerController.$inject.forEach((item, index) => this[item] = injects[index]);
+    SerialInfoContainerController.$inject.forEach((item, index) => (this[item] = injects[index]));
   }
 
   $onInit() {
